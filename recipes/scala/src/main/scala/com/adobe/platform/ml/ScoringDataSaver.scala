@@ -43,6 +43,9 @@ class ScoringDataSaver extends DataSaver {
     val userToken: String = sparkSession.sparkContext.getConf.get("ML_FRAMEWORK_IMS_TOKEN", "").toString
     val orgId: String = sparkSession.sparkContext.getConf.get("ML_FRAMEWORK_IMS_ORG_ID", "").toString
     val apiKey:String = configProperties.get("apiKey").getOrElse("")
+    val clientSecret: String = configProperties.get("clientSecret").getOrElse("")
+    val clientCode: String = configProperties.get("clientCode").getOrElse("")
+    val clientId: String = configProperties.get("imsClientId").getOrElse("")
 
     val scoredDataSetId: String = configProperties.get("scoredDataSetId").getOrElse("")
 

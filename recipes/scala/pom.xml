@@ -26,8 +26,48 @@
 				<enabled>true</enabled>
 			</releases>
 		</repository>
+		<repository>
+			<id>experience-platform-snapshots</id>
+			<name>Experience Platform Snapshots</name>
+			<url>https://artifactory.corp.adobe.com/artifactory/maven-experienceplatform-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>experience-platform-releases</id>
+			<name>Experience Platform Releases</name>
+			<url>https://artifactory.corp.adobe.com/artifactory/maven-experienceplatform-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+
 	</repositories>
 	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-scala_${scala.binary.version}</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.0</version>
+		</dependency>
 		<dependency>
 			<groupId>com.databricks</groupId>
 			<artifactId>spark-avro_${scala.compat.version}</artifactId>
@@ -42,7 +82,7 @@
 			<groupId>com.adobe.platform.ml</groupId>
 			<artifactId>authoring-sdk_2.11</artifactId>
 			<version>0.16.0</version>
-			<classifier>dependencies</classifier>
+			<classifier>jar-with-dependencies</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.spark</groupId>

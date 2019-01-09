@@ -41,13 +41,17 @@ class ScoringDataLoader extends DataLoader {
     val dataSetId: String = configProperties.get("dataSetId").getOrElse("")
     val batchId: String = configProperties.get("batchId").getOrElse("")
     val apiKey:String = configProperties.get("apiKey").getOrElse("")
+    val clientSecret: String = configProperties.get("clientSecret").getOrElse("")
+    val clientCode: String = configProperties.get("clientCode").getOrElse("")
+    val clientId: String = configProperties.get("imsClientId").getOrElse("")
+
+
 
     var df = sparkSession.read.format("com.adobe.platform.dataset")
       .option(DataSetOptions.serviceToken, serviceToken)
       .option(DataSetOptions.userToken, userToken)
       .option(DataSetOptions.serviceApiKey, apiKey)
       .option(DataSetOptions.orgId, orgId)
-      .option(DataSetOptions.batchId, batchId)
       .load(dataSetId)
 
     import sparkSession.implicits._
